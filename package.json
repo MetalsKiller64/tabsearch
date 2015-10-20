@@ -1,0 +1,113 @@
+{
+  "title": "TabSearch",
+  "name": "tabsearch",
+  "version": "1.5.0",
+  "description": "Search for one or more tabs in the currently opened tabs",
+  "main": "index.js",
+  "author": "MetalsKiller64",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+
+  "preferences": [{
+        "name": "only_first",
+        "title": "show only first match",
+        "description": "[set default value] Open only the first matching tab and ignore any other match.",
+        "type": "bool",
+        "value": false
+    },
+    {
+        "name": "match_case",
+        "title": "Case sensitive",
+        "description": "[set default value] Whether to ignore case while searching for matches.",
+        "type": "bool",
+        "value": false
+    },
+    {
+        "name": "use_panel",
+        "title": "Use panel for search",
+        "description": "When activated a panel will be shown by using the show/hide hotkey.",
+        "type": "bool",
+        "value": false
+    },
+    {
+        "name": "show_controls",
+        "title": "Show controls",
+        "description": "Show control elements in toolbar",
+        "type": "bool",
+        "value": true
+    },
+    {
+        "name": "enable_hotkey_show_hide",
+        "title": "Enable show/hide hotkey",
+        "description": "Show or hide the toolbar by pressing this hotkey (default=true)",
+        "type": "bool",
+        "value": true
+    },
+    {
+        "name": "hotkey_show_hide_combo",
+        "title": "Define show/hide hotkey",
+        "description": "Define keys used for the show/hide hotkey.",
+        "type": "string",
+        "value": ""
+    },
+    {
+        "name": "enable_hotkey_switching",
+        "title": "Enable match switching hotkeys",
+        "description": "When enabled, switch between matching tabs by pressing Ctrl+Shift+[left or right arrow key]",
+        "type": "bool",
+        "value": true
+    },
+    {
+        "name": "hotkey_switch_combo_prev",
+        "title": "Define switch hotkey (left)",
+        "description": "Define keys used as the hotkey for switching to previous tab.",
+        "type": "string",
+        "value": ""
+    },
+    {
+        "name": "hotkey_switch_combo_next",
+        "title": "Define switch hotkey (right)",
+        "description": "Define keys used as the hotkey for switching to next tab.",
+        "type": "string",
+        "value": ""
+    },
+    {
+        "name": "show_toolbar_on_startup",
+        "title": "Show toolbar on startup",
+        "description": "Choose whether to show or hide the toolbar after startup. (default=true)",
+        "type": "bool",
+        "value": true
+    },
+    {
+        "name": "hotkey_info",
+        "title": "Hotkey Info",
+        "type": "string",
+        "value": "Beispiel: accel-shift-left; Keys: shift, alt, ctrl, arrows(left, right, up, down), pageup, pagedown, meta, accel (nicht erlaubt: accel-Z, accel-C, accel-X, accel-V, accel-Q)"
+    },
+    {
+        "name": "badge_usage",
+        "type": "menulist",
+        "title": "Button-Badge",
+        "description": "Choose which info to show over the toolbar button",
+        "value": 0,
+        "options": [
+            {
+                "value": "0",
+                "label": "all"
+            },
+            {
+                "value": "1",
+                "label": "match"
+            }
+        ]
+    },
+    {
+        "name": "save_preferences",
+        "title": "Save Changes",
+        "label": "Save",
+        "type": "control"
+    }]
+}

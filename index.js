@@ -40,6 +40,15 @@ var enable_hotkey_switching = preferences["enable_hotkey_switching"];
 //TODO: suchbegriff historie die sessionübergreifend gespeichert wird und in den settings gelöscht werden kann
 function update_badge(nummer = undefined)
 {
+	console.log("update_badge")
+	if (preferences["badge_usage"] == 0)
+	{
+		console.log("NONE")
+		button.state("window", {
+			badge: ""
+		});
+		return;
+	}
 	if (nummer == undefined || typeof(nummer) == "object")
 	{
 		nummer = require("sdk/tabs").length;
@@ -53,15 +62,19 @@ function update_badge(nummer = undefined)
 
 function define_badge_update(update)
 {
-	if (update == 0)
+	if (update == 1)
 	{
 		tabs.on("open", update_badge);
 		tabs.on("close", update_badge);
 	}
-	else if (update == 1)
+	else if (update == 2 || update == 0)
 	{
 		tabs.removeListener("open", update_badge);
 		tabs.removeListener("close", update_badge);
+		if (button != undefined)
+		{
+			update_badge();
+		}
 	}
 }
 
@@ -78,6 +91,7 @@ function on_preference_change(preference_name)
 	}
 	if (preference_name == "badge_usage")
 	{
+		console.log("define_badge_update; "+preferences["badge_usage"]);
 		define_badge_update(preferences["badge_usage"]);
 	}
 }
@@ -88,6 +102,7 @@ require("sdk/simple-prefs").on("save_preferences", function() {
 require("sdk/simple-prefs").on("badge_usage", on_preference_change);
 define_hotkey_show_hide();
 define_hotkeys_switching();
+console.log("define_badge_update; "+preferences["badge_usage"]);
 define_badge_update(preferences["badge_usage"]);
 
 function define_hotkey_show_hide()

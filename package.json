@@ -1,7 +1,7 @@
 {
   "title": "TabSearch",
   "name": "tabsearch",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Search for one or more tabs in the currently opened tabs",
   "main": "index.js",
   "author": "MetalsKiller64",
@@ -96,10 +96,14 @@
         "options": [
             {
                 "value": "0",
-                "label": "all"
+                "label": "none"
             },
             {
                 "value": "1",
+                "label": "all"
+            },
+            {
+                "value": "2",
                 "label": "match"
             }
         ]
